@@ -38,13 +38,13 @@ class MemberRepositoryV1Test {
         //findById
         Member memberById = repository.findById(member.getMemberId());
         assertThat(memberById).isNotNull();
-        //update: money: 10000 -> 20000 
+        //update: money: 10000 -> 20000
         repository.update(member.getMemberId(), 20000);
         Member updatedMember = repository.findById(member.getMemberId());
         assertThat(updatedMember.getMoney()).isEqualTo(20000);
         //delete
         repository.delete(member.getMemberId());
         assertThatThrownBy(() -> repository.findById(member.getMemberId()))
-                .isInstanceOf(NoSuchElementException.class);
+                .isInstanceOf(NoSuchElementException.class); 
     }
 }
